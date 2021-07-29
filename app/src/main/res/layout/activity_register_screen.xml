@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RegisterScreen">
+
+    <ImageView
+        android:id="@+id/leaveView"
+        android:layout_width="200dp"
+        android:layout_height="140dp"
+        android:adjustViewBounds="true"
+        android:baselineAlignBottom="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/leave" />
+
+    <ImageButton
+        android:id="@+id/instaButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="56dp"
+        app:layout_constraintBottom_toTopOf="@+id/registrateButton"
+        app:layout_constraintEnd_toStartOf="@+id/whatsButton"
+        app:layout_constraintStart_toEndOf="@+id/googleButton"
+        app:srcCompat="@drawable/logoinsta" />
+
+    <ImageButton
+        android:id="@+id/faceButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="56dp"
+        app:layout_constraintBottom_toTopOf="@+id/registrateButton"
+        app:layout_constraintEnd_toStartOf="@+id/googleButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/logoface" />
+
+    <ImageButton
+        android:id="@+id/googleButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="56dp"
+        app:layout_constraintBottom_toTopOf="@+id/registrateButton"
+        app:layout_constraintEnd_toStartOf="@+id/instaButton"
+        app:layout_constraintStart_toEndOf="@+id/faceButton"
+        app:srcCompat="@drawable/logogoogle" />
+
+    <ImageButton
+        android:id="@+id/whatsButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="56dp"
+        app:layout_constraintBottom_toTopOf="@+id/registrateButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/instaButton"
+        app:srcCompat="@drawable/logowhats" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="365dp" />
+
+    <Button
+        android:id="@+id/registrateButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="104dp"
+        android:text="Registrate"
+        app:layout_constraintBottom_toTopOf="@+id/tienesCuentaText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/tienesCuentaText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="116dp"
+        android:text="¿Ya tienes una cuenta? "
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/iniciaSesionButton"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/iniciaSesionButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="96dp"
+        android:text="Inicia sesión"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tienesCuentaText" />
+</androidx.constraintlayout.widget.ConstraintLayout>

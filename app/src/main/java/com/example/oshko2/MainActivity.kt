@@ -19,7 +19,7 @@ class MainActivity : AppCompatActivity() {
         supportActionBar?.hide()
 
         Handler().postDelayed({
-            val intent = Intent(this@MainActivity , HomeActivity::class.java)
+            val intent = Intent(this@MainActivity , RegisterScreen::class.java)
             startActivity(intent)
             finish()
         }, 2000)

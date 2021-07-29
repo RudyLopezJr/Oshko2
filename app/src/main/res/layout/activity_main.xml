@@ -6,8 +6,4 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity"
     android:background="@drawable/ic_firstview">
-
-
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>

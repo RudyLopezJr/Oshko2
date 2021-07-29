@@ -8,6 +8,7 @@ import android.widget.EditText
 
 const val USER_NAME = "com.example.oshko2.USER_NAME"
 
+
 class HomeActivity : AppCompatActivity() {
 
     private lateinit var boton: Button
