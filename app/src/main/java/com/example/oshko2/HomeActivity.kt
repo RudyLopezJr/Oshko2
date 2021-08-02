@@ -39,7 +39,7 @@ class HomeActivity : AppCompatActivity() {
                 R.id.ic_shopping_cart -> replaceFragment(shoppingCartFragment)
                 R.id.ic_star -> replaceFragment(starFragment)
             }
-            true 
+            true
         }
     }
 
@@ -51,23 +51,3 @@ class HomeActivity : AppCompatActivity() {
         }
     }
 }
-
-/*
-       boton = findViewById(R.id.buttonAccept)
-       input = findViewById(R.id.editText)
-
-       boton.setOnClickListener {
-           val bundle = Bundle()
-
-           //Ir metiendo toda la info, bundle es como la caja
-           bundle.putString(USER_NAME, input.text.toString())
-
-           //Intent es el canal de comunicación
-           val intent = Intent(this, principalMenu::class.java ).apply{
-               putExtras(bundle)
-           }
-
-           startActivity(intent)
-       }
-
-        */
