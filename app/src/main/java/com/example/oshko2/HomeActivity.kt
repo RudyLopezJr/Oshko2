@@ -19,21 +19,25 @@ class HomeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
 
-        boton = findViewById(R.id.buttonAccept)
-        input = findViewById(R.id.editText)
-
-        boton.setOnClickListener {
-            val bundle = Bundle()
-
-            //Ir metiendo toda la info, bundle es como la caja
-            bundle.putString(USER_NAME, input.text.toString())
-
-            //Intent es el canal de comunicación
-            val intent = Intent(this, principalMenu::class.java ).apply{
-                putExtras(bundle)
-            }
-
-            startActivity(intent)
-        }
     }
 }
+
+/*
+       boton = findViewById(R.id.buttonAccept)
+       input = findViewById(R.id.editText)
+
+       boton.setOnClickListener {
+           val bundle = Bundle()
+
+           //Ir metiendo toda la info, bundle es como la caja
+           bundle.putString(USER_NAME, input.text.toString())
+
+           //Intent es el canal de comunicación
+           val intent = Intent(this, principalMenu::class.java ).apply{
+               putExtras(bundle)
+           }
+
+           startActivity(intent)
+       }
+
+        */

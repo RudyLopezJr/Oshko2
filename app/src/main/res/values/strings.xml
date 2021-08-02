@@ -9,6 +9,10 @@
     <string name="user">Nombre o username</string>
     <string name="password">Contraseña</string>
     <string name="f_password">¿Olvidaste tu contraseña?</string>
+    <string name="home">home</string>
+    <string name="offers">offers</string>
+    <string name="cart">cart</string>
+    <string name="profile">profile</string>
 
 
 </resources>

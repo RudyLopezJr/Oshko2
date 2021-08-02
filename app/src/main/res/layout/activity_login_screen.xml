@@ -4,33 +4,25 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LoginScreen"><![CDATA[
-
-    "
-    />
-
-
-
-
-
-
-
-
-    ]]>
+    tools:context=".LoginScreen">
 
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="208dp"
         android:layout_height="112dp"
+        android:layout_marginTop="104dp"
         android:src="@drawable/logo_oshko"
-        tools:layout_editor_absoluteX="100dp"
-        tools:layout_editor_absoluteY="144dp" />
+        app:layout_constraintBottom_toTopOf="@+id/nombrePlainText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
     <EditText
         android:id="@+id/nombrePlainText"
         android:layout_width="214dp"
         android:layout_height="45dp"
+        android:layout_marginTop="24dp"
         android:drawableLeft="@drawable/user"
         android:drawablePadding="4dp"
         android:ems="10"
@@ -39,35 +31,38 @@
         android:text="@string/user"
         android:textColor="@color/accent1"
         android:textSize="16sp"
-        tools:layout_editor_absoluteX="100dp"
-        tools:layout_editor_absoluteY="283dp" />
-
-
+        app:layout_constraintBottom_toTopOf="@+id/passwordText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
     <EditText
         android:id="@+id/passwordText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:ems="10"
+        android:layout_marginTop="24dp"
         android:drawableLeft="@drawable/user"
         android:drawablePadding="4dp"
+        android:ems="10"
         android:inputType="textPassword"
         android:text="@string/password"
         android:textColor="@color/accent1"
-        tools:layout_editor_absoluteX="100dp"
-        tools:layout_editor_absoluteY="360dp" />
+        app:layout_constraintBottom_toTopOf="@+id/forgottenpassword"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nombrePlainText" />
 
     <TextView
         android:id="@+id/forgottenpassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="32dp"
         android:fontFamily="@font/roboto"
         android:text="@string/f_password"
         android:textColor="@color/accent1"
         android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.618"
+        app:layout_constraintHorizontal_bias="0.477"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/passwordText" />
 
@@ -80,9 +75,9 @@
         android:text="@string/login_button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.453"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.698" />
+        app:layout_constraintTop_toBottomOf="@+id/forgottenpassword" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
