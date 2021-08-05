@@ -5,14 +5,25 @@
     <string name="register_button">O REGÍSTRATE</string>
     <string name="login">¿Tienes una cuenta?</string>
     <string name="login_button">INICIAR SESIÓN</string>
+
     //loginscreen
     <string name="user">Nombre o username</string>
     <string name="password">Contraseña</string>
     <string name="f_password">¿Olvidaste tu contraseña?</string>
+
+    //profilescreen
+    <string name="username">Persona</string>
+    <string name="eco_print">Tu consumo ha logrado reducir tu huella ecológica en un 20%</string>
+    <string name="history">Historial de compras</string>
+    <string name="payment">Mis métodos de pago</string>
+    <string name="address">Mis direcciones</string>
+    <string name="favs">Favoritos</string>
+    <string name="settings">Configuración</string>
+
+    <string name="profile">profile</string>
     <string name="home">home</string>
     <string name="offers">offers</string>
     <string name="cart">cart</string>
-    <string name="profile">profile</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
