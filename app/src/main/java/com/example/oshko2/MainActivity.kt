@@ -8,13 +8,16 @@ import android.os.Handler
 import androidx.core.os.HandlerCompat.postDelayed
 
 
-class
-MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity() {
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+
+        //preguntar para que agregaron esto al código XD
+        /*
 
         open_btn=findViewById(R.id.open_btn)
         text=findViewById(R.id.text)
@@ -24,6 +27,7 @@ MainActivity : AppCompatActivity() {
             open_btn.isEnabled = false
         }
 
+         */
 
         supportActionBar?.hide()
 
