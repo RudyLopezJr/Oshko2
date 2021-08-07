@@ -29,6 +29,10 @@ class ProfileFragment : Fragment() {
 
     private lateinit var name : TextView
     private lateinit var shoppingHistory : TextView
+    private lateinit var payment : TextView
+    private lateinit var shipping : TextView
+    private lateinit var favorites : TextView
+    private lateinit var settings : TextView
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -51,17 +55,35 @@ class ProfileFragment : Fragment() {
         name.text = "Juan Hernandez"
 
         shoppingHistory = view.history
+        payment = view.payment
+        shipping = view.shipping
+        favorites = view.favorites
+        settings = view.settings
 
         shoppingHistory.setOnClickListener{
-            var fr = getFragmentManager()?.beginTransaction()
-            fr?.replace(R.id.fragment_container, ShoppingHistoryFragment())
-            fr?.commit()
-
+            changeFragment(ShoppingHistoryFragment())
+        }
+        payment.setOnClickListener{
+            changeFragment(PaymentMetods())
+        }
+        shipping.setOnClickListener{
+            changeFragment(ShippingFragment())
+        }
+        favorites.setOnClickListener{
+            changeFragment(FavoriteFragment())
+        }
+        settings.setOnClickListener{
+            changeFragment(SettingsFragment())
         }
 
 
-
         return view
+    }
+
+    fun changeFragment(fragment: Fragment){
+        var fr = getFragmentManager()?.beginTransaction()
+        fr?.replace(R.id.fragment_container, fragment)
+        fr?.commit()
     }
 
     companion object {
