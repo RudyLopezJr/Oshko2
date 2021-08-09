@@ -9,8 +9,8 @@
 
     <ImageView
         android:id="@+id/leaveView"
-        android:layout_width="200dp"
-        android:layout_height="140dp"
+        android:layout_width="258dp"
+        android:layout_height="215dp"
         android:scaleType="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -82,16 +82,17 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_end="275dp" />
+        app:layout_constraintGuide_end="338dp" />
 
     <Button
         android:id="@+id/registrateButton"
         android:layout_width="336dp"
         android:layout_height="48dp"
-        android:layout_marginBottom="224dp"
-        android:backgroundTint="@color/primary1"
+        android:layout_marginBottom="264dp"
+        android:backgroundTint="@color/white"
         android:fontFamily="@font/roboto_bold"
         android:text="@string/register_button"
+        android:textColor="@color/accent1"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
