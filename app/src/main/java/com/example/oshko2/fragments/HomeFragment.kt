@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -44,9 +45,17 @@ class HomeFragment : Fragment() {
         val recyclerView = view.findViewById<RecyclerView>(R.id.recyclerView)
         val adapter = CustomAdapter()
 
+
         //view.recyclerView.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
         view.recyclerView.layoutManager = GridLayoutManager(activity,2)
         recyclerView.adapter = adapter
+
+        adapter.setOnItemClickListener(object : CustomAdapter.onItemClickListener{
+            override fun onItemClick(position: Int) {
+                Toast.makeText(activity, "You clicked on Item no. $position", Toast.LENGTH_SHORT).show()
+            }
+
+        })
 
 
 
