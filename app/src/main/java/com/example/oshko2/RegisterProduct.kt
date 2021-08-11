@@ -3,7 +3,7 @@ package com.example.oshko2
 class RegisterProduct {
 
     val dulces = ProductGroup(1, "Dulces", R.drawable.leave)
-    val cremas = ProductGroup(2, "Cremas", R.drawable. facebook)
+    val cremas = ProductGroup(2, "Cremas", R.drawable.facebook)
 
 
     val fresa = Product(1,"Fresa", "Es una fresa", R.drawable.leave , 10.22f)

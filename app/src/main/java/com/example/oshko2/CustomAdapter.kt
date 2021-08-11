@@ -10,11 +10,15 @@ import java.text.FieldPosition
 
 class CustomAdapter : RecyclerView.Adapter<CustomAdapter.ViewHolder>(){
 
+
     val names = arrayOf("hoja","facebook")
     //val descriptions = arrayOf("Es una hoja","Es el logo de facebook")
     val images = intArrayOf(R.drawable.leave, R.drawable.logoface)
 
+
+    
     val products = RegisterProduct()
+    val sizeProducts = products.myProducts.size
 
     private lateinit var mListener: onItemClickListener
 
@@ -35,13 +39,13 @@ class CustomAdapter : RecyclerView.Adapter<CustomAdapter.ViewHolder>(){
 
 
     override fun onBindViewHolder(viewHolder: ViewHolder, i: Int) {
-        viewHolder.productName.text = products.myProducts[i].tittle
+        viewHolder.productName.text = products.myProductGroup[i].name
         //viewHolder.productDescription.text = descriptions[i]
-        viewHolder.itemImage.setImageResource(images[i])
+        viewHolder.itemImage.setImageResource(products.myProductGroup[i].image)
     }
 
     override fun getItemCount(): Int {
-        return names.size
+        return sizeProducts
     }
 
     inner class ViewHolder(itemView: View , listener: onItemClickListener): RecyclerView.ViewHolder(itemView){
