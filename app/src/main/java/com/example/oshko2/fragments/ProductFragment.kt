@@ -11,9 +11,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.oshko2.CustomAdapter
-import com.example.oshko2.CustomAdapter2
-import com.example.oshko2.R
+import com.example.oshko2.*
 import kotlinx.android.synthetic.main.card_layout.*
 import kotlinx.android.synthetic.main.card_layout.view.*
 import kotlinx.android.synthetic.main.fragment_product.view.*
@@ -32,7 +30,7 @@ class ProductFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
-
+    private lateinit var  productFragmentTittle : TextView
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -49,11 +47,11 @@ class ProductFragment : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_product, container, false)
 
-
+        productFragmentTittle = view.productsFragment
+        productFragmentTittle.text = titles[positionE]
 
         val recyclerView2 = view.findViewById<RecyclerView>(R.id.recyclerView2)
         val adapter = CustomAdapter2()
-
 
 
         view.recyclerView2.layoutManager = LinearLayoutManager(activity)
@@ -64,17 +62,6 @@ class ProductFragment : Fragment() {
         adapter.setOnItemClickListener(object : CustomAdapter2.onItemClickListener{
             override fun onItemClick(position: Int) {
 
-                //description_product.text = "Se ha tocado el elemento"
-                addButton.setOnClickListener{
-                    quantityToAdd.text = "1"
-
-                    Toast.makeText(activity, "You clicked $position button", Toast.LENGTH_SHORT).show()
-                }
-                deleteButton.setOnClickListener{
-                    quantityToAdd.text = "0"
-
-                }
-                Toast.makeText(activity, "You clicked on Item no. $position", Toast.LENGTH_SHORT).show()
             }
 
             override fun onImageAddClick(position: Int, button: ImageView, text: TextView) {
@@ -91,13 +78,23 @@ class ProductFragment : Fragment() {
             }
 
             override fun onStarSelected(position: Int, button: ImageView) {
+
                 if(!boolStar){
                     getContext()?.getResources()?.getColor(R.color.auxiliarColor1)?.let {
                         button.setColorFilter(
                             it
                         )
                     };
-                    Toast.makeText(activity, "Se ha desagregado de favoritos", Toast.LENGTH_SHORT).show()
+                    var i = 0
+                    for(favorite in products.myFavorites){
+                        if(products.myProducts[position + num].id == favorite.id){
+                            products.myFavorites.removeAt(i)
+                            Toast.makeText(activity, "Se ha desagregado de favoritos", Toast.LENGTH_SHORT).show()
+                        }
+                        i+=1
+                    }
+
+
                     boolStar = true
                 }
                 else{
@@ -106,9 +103,31 @@ class ProductFragment : Fragment() {
                             it
                         )
                     };
-                    Toast.makeText(activity, "Se ha agregado a favoritos", Toast.LENGTH_SHORT).show()
+
+                    var aux2 = false
+
+                    for(favorite in products.myFavorites){
+                        if(products.myProducts[position + num].id.toString().toInt() == favorite.id.toString().toInt()){
+                            aux2 = true
+                        }
+                    }
+                    if(!aux2){
+                        val aux3 = products.myProducts[position + num]
+                        products.myFavorites.add(aux3)
+                        Toast.makeText(activity, "Se ha agregado a favoritos", Toast.LENGTH_SHORT).show()
+                    }
+
+
                     boolStar = false
                 }
+            }
+
+            override fun onButtonSelected(position: Int, text: TextView) {
+                var aux1 = text.text.toString().toInt()
+                var aux2 = products.myProducts[position + positionE*4]
+                aux2.quantity += aux1
+                products.myShoppingCart.add(aux2)
+                text.text = "0"
             }
 
 

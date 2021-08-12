@@ -11,9 +11,10 @@ import androidx.recyclerview.widget.RecyclerView
 import org.w3c.dom.Text
 import java.text.FieldPosition
 
-class CustomAdapter2 : RecyclerView.Adapter<CustomAdapter2.ViewHolder>(){
+class CustomAdapter3 : RecyclerView.Adapter<CustomAdapter3.ViewHolder>(){
 
-    val sizeProducts = sizeOfProducts
+
+    val sizeProducts = products.myShoppingCart.size
 
     private lateinit var mListener: onItemClickListener
 
@@ -38,9 +39,10 @@ class CustomAdapter2 : RecyclerView.Adapter<CustomAdapter2.ViewHolder>(){
 
 
     override fun onBindViewHolder(viewHolder: ViewHolder, i: Int) {
-        viewHolder.productName.text = products.myProducts[i + num].tittle
-        viewHolder.productDescription.text = products.myProducts[i + num].description
-        viewHolder.itemImage.setImageResource(products.myProducts[i + num].image)
+        viewHolder.productName.text = products.myShoppingCart[i].tittle
+        viewHolder.productDescription.text = products.myShoppingCart[i].description
+        viewHolder.itemImage.setImageResource(products.myShoppingCart[i].image)
+        viewHolder.quantity.text = products.myShoppingCart[i].quantity.toString()
     }
 
     override fun getItemCount(): Int {
@@ -58,6 +60,7 @@ class CustomAdapter2 : RecyclerView.Adapter<CustomAdapter2.ViewHolder>(){
         var buttonShopping : Button
 
 
+
         init{
             itemImage = itemView.findViewById(R.id.item_image)
             productName = itemView.findViewById(R.id.name_product)
@@ -67,8 +70,7 @@ class CustomAdapter2 : RecyclerView.Adapter<CustomAdapter2.ViewHolder>(){
             quantity = itemView.findViewById(R.id.quantityToAdd)
             star = itemView.findViewById(R.id.favoriteIcon)
             buttonShopping = itemView.findViewById(R.id.buttonShoppingCart)
-
-
+            buttonShopping.text = "Eliminar del carrito"
 
 
             itemView.setOnClickListener{

@@ -15,6 +15,14 @@ import kotlinx.android.synthetic.main.activity_home.*
 
 const val USER_NAME = "com.example.oshko2.USER_NAME"
 
+var num = 0
+var positionE = 0
+var titles = mutableListOf("Cremas", "Dulces", "Salsas", "Botanas")
+var tittle = titles[0]
+var sizeOfProducts = 4
+
+var products = RegisterProduct()
+
 
 class HomeActivity : AppCompatActivity() {
 

@@ -9,11 +9,12 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import org.w3c.dom.Text
+import java.security.AccessController.getContext
 import java.text.FieldPosition
 
-class CustomAdapter2 : RecyclerView.Adapter<CustomAdapter2.ViewHolder>(){
+class CustomAdapter4 : RecyclerView.Adapter<CustomAdapter4.ViewHolder>(){
 
-    val sizeProducts = sizeOfProducts
+    val sizeProducts = products.myFavorites.size
 
     private lateinit var mListener: onItemClickListener
 
@@ -38,9 +39,9 @@ class CustomAdapter2 : RecyclerView.Adapter<CustomAdapter2.ViewHolder>(){
 
 
     override fun onBindViewHolder(viewHolder: ViewHolder, i: Int) {
-        viewHolder.productName.text = products.myProducts[i + num].tittle
-        viewHolder.productDescription.text = products.myProducts[i + num].description
-        viewHolder.itemImage.setImageResource(products.myProducts[i + num].image)
+        viewHolder.productName.text = products.myFavorites[i].tittle
+        viewHolder.productDescription.text = products.myFavorites[i].description
+        viewHolder.itemImage.setImageResource(products.myFavorites[i].image)
     }
 
     override fun getItemCount(): Int {
@@ -68,8 +69,7 @@ class CustomAdapter2 : RecyclerView.Adapter<CustomAdapter2.ViewHolder>(){
             star = itemView.findViewById(R.id.favoriteIcon)
             buttonShopping = itemView.findViewById(R.id.buttonShoppingCart)
 
-
-
+            buttonShopping.context.resources?.getColor(R.color.auxiliarColor2)
 
             itemView.setOnClickListener{
                 listener.onItemClick(absoluteAdapterPosition)

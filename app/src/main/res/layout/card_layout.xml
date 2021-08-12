@@ -41,8 +41,8 @@
 
         <TextView
             android:id="@+id/description_product"
-            android:layout_width="83dp"
-            android:layout_height="52dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
 
             android:layout_marginTop="8dp"
@@ -89,7 +89,7 @@
             card_view:layout_constraintTop_toTopOf="@+id/guideline3" />
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/buttonShoppingCart"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Agregar al carrito"

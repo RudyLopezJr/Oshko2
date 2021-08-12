@@ -9,8 +9,7 @@ import android.widget.Toast
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.oshko2.CustomAdapter
-import com.example.oshko2.R
+import com.example.oshko2.*
 import kotlinx.android.synthetic.main.fragment_home.view.*
 
 // TODO: Rename parameter arguments, choose names that match
@@ -52,7 +51,11 @@ class HomeFragment : Fragment() {
 
         adapter.setOnItemClickListener(object : CustomAdapter.onItemClickListener{
             override fun onItemClick(position: Int) {
-                Toast.makeText(activity, "You clicked on Item no. $position", Toast.LENGTH_SHORT).show()
+                positionE = position
+                num = 0
+                num += position * 4
+                tittle = titles[position]
+                //Toast.makeText(activity, "You clicked on Item no. $position", Toast.LENGTH_SHORT).show()
                 changeFragment(ProductFragment())
             }
 

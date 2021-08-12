@@ -5,7 +5,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.oshko2.R
+import android.widget.ImageView
+import android.widget.TextView
+import android.widget.Toast
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.example.oshko2.*
+import kotlinx.android.synthetic.main.fragment_star.view.*
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -34,8 +40,98 @@ class StarFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_star, container, false)
+        val view = inflater.inflate(R.layout.fragment_star, container, false)
+
+        //view.starFragment.text = "Hay ${products.myFavorites.size}"
+        
+        if(products.myFavorites.size > 0){
+            val recyclerView4 = view.findViewById<RecyclerView>(R.id.recyclerView4)
+            val adapter = CustomAdapter4()
+
+            view.recyclerView4.layoutManager = LinearLayoutManager(activity)
+            recyclerView4.adapter = adapter
+
+            var boolStar = false
+
+            adapter.setOnItemClickListener(object : CustomAdapter4.onItemClickListener{
+                override fun onItemClick(position: Int) {
+
+                }
+
+                override fun onImageAddClick(position: Int, button: ImageView, text: TextView) {
+                    var aux1  = text.text.toString().toInt()
+                    aux1 += 1
+                    text.text = "$aux1"
+                }
+
+                override fun onImageDeleteClick(position: Int, button: ImageView, text: TextView) {
+                    var aux1  = text.text.toString().toInt()
+                    if(aux1 > 0)
+                        aux1 -= 1
+                    text.text = "$aux1"
+                }
+
+                override fun onStarSelected(position: Int, button: ImageView) {
+                    var positionEF = positionE * sizeOfProducts
+                    if(!boolStar){
+                        getContext()?.getResources()?.getColor(R.color.auxiliarColor1)?.let {
+                            button.setColorFilter(
+                                it
+                            )
+                        };
+
+                        products.myFavorites.removeAt(position)
+
+                        Toast.makeText(activity, "Se ha desagregado de favoritos", Toast.LENGTH_SHORT).show()
+                        boolStar = true
+
+                        changeFragment(StarFragment())
+                    }
+                    else{
+                        getContext()?.getResources()?.getColor(R.color.auxiliarColor2)?.let {
+                            button.setColorFilter(
+                                it
+                            )
+                        };
+
+                        var aux2 = false
+
+                        for(favorite in products.myFavorites){
+                            if(products.myProducts[position + positionEF].id == favorite.id){
+                                aux2 = true
+                            }
+                        }
+                        if(!aux2){
+                            val aux3 = products.myProducts[position + positionEF]
+                            products.myShoppingCart.add(aux3)
+                        }
+
+                        Toast.makeText(activity, "Se ha agregado a favoritos", Toast.LENGTH_SHORT).show()
+                        boolStar = false
+                    }
+                }
+
+                override fun onButtonSelected(position: Int, text: TextView) {
+                    var aux1 = text.text.toString().toInt()
+                    var aux2 = products.myProducts[position + positionE *4]
+                    aux2.quantity += aux1
+                    products.myShoppingCart.add(aux2)
+                    text.text = "0"
+                }
+
+
+            })
+        }
+
+
+
+        return view
+    }
+
+    fun changeFragment(fragment: Fragment){
+        var fr = getFragmentManager()?.beginTransaction()
+        fr?.replace(R.id.fragment_container, fragment)
+        fr?.commit()
     }
 
     companion object {
