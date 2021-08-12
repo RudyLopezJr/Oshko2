@@ -23,6 +23,9 @@ class CustomAdapter2 : RecyclerView.Adapter<CustomAdapter2.ViewHolder>(){
     interface onItemClickListener{
 
         fun onItemClick (position: Int)
+        fun onImageAddClick (position: Int, button : ImageView , text : TextView )
+        fun onImageDeleteClick (position: Int, button : ImageView , text : TextView )
+        fun onStarSelected (position: Int, button : ImageView)
     }
 
     fun setOnItemClickListener(listener: onItemClickListener){
@@ -53,6 +56,8 @@ class CustomAdapter2 : RecyclerView.Adapter<CustomAdapter2.ViewHolder>(){
         var delete: ImageView
         var productDescription: TextView
         var quantity: TextView
+        var star : ImageView
+
 
         init{
             itemImage = itemView.findViewById(R.id.item_image)
@@ -61,6 +66,7 @@ class CustomAdapter2 : RecyclerView.Adapter<CustomAdapter2.ViewHolder>(){
             delete = itemView.findViewById(R.id.deleteButton)
             productDescription = itemView.findViewById(R.id.description_product)
             quantity = itemView.findViewById(R.id.quantityToAdd)
+            star = itemView.findViewById(R.id.favoriteIcon)
 
 
             itemView.setOnClickListener{
@@ -68,11 +74,15 @@ class CustomAdapter2 : RecyclerView.Adapter<CustomAdapter2.ViewHolder>(){
             }
 
             plus.setOnClickListener{
-                listener.onItemClick(absoluteAdapterPosition)
+                listener.onImageAddClick(absoluteAdapterPosition, plus, quantity)
             }
 
             delete.setOnClickListener{
-                listener.onItemClick(absoluteAdapterPosition)
+                listener.onImageDeleteClick(absoluteAdapterPosition, delete , quantity)
+            }
+
+            star.setOnClickListener{
+                listener.onStarSelected(absoluteAdapterPosition, star)
             }
 
         }

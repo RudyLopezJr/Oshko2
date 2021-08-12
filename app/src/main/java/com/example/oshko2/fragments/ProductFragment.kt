@@ -1,10 +1,12 @@
 package com.example.oshko2.fragments
 
+import android.graphics.Color
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -57,6 +59,8 @@ class ProductFragment : Fragment() {
         view.recyclerView2.layoutManager = LinearLayoutManager(activity)
         recyclerView2.adapter = adapter
 
+        var boolStar = true
+
         adapter.setOnItemClickListener(object : CustomAdapter2.onItemClickListener{
             override fun onItemClick(position: Int) {
 
@@ -72,6 +76,42 @@ class ProductFragment : Fragment() {
                 }
                 Toast.makeText(activity, "You clicked on Item no. $position", Toast.LENGTH_SHORT).show()
             }
+
+            override fun onImageAddClick(position: Int, button: ImageView, text: TextView) {
+                var aux1  = text.text.toString().toInt()
+                aux1 += 1
+                text.text = "$aux1"
+            }
+
+            override fun onImageDeleteClick(position: Int, button: ImageView, text: TextView) {
+                var aux1  = text.text.toString().toInt()
+                if(aux1 > 0)
+                    aux1 -= 1
+                text.text = "$aux1"
+            }
+
+            override fun onStarSelected(position: Int, button: ImageView) {
+                if(!boolStar){
+                    getContext()?.getResources()?.getColor(R.color.auxiliarColor1)?.let {
+                        button.setColorFilter(
+                            it
+                        )
+                    };
+                    Toast.makeText(activity, "Se ha desagregado de favoritos", Toast.LENGTH_SHORT).show()
+                    boolStar = true
+                }
+                else{
+                    getContext()?.getResources()?.getColor(R.color.auxiliarColor2)?.let {
+                        button.setColorFilter(
+                            it
+                        )
+                    };
+                    Toast.makeText(activity, "Se ha agregado a favoritos", Toast.LENGTH_SHORT).show()
+                    boolStar = false
+                }
+            }
+
+
         })
 
 
