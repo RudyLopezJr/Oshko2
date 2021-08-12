@@ -11,14 +11,14 @@ import java.text.FieldPosition
 class CustomAdapter : RecyclerView.Adapter<CustomAdapter.ViewHolder>(){
 
 
-    val names = arrayOf("hoja","facebook")
+    //val names = arrayOf("hoja","facebook")
     //val descriptions = arrayOf("Es una hoja","Es el logo de facebook")
-    val images = intArrayOf(R.drawable.leave, R.drawable.logoface)
+    //val images = intArrayOf(R.drawable.leave, R.drawable.logoface)
 
 
     
     val products = RegisterProduct()
-    val sizeProducts = products.myProducts.size
+    val sizeProducts = products.myProductGroup.size
 
     private lateinit var mListener: onItemClickListener
 
