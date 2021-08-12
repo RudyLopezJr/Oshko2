@@ -2,26 +2,45 @@ package com.example.oshko2
 
 class RegisterProduct {
 
-    val dulces = ProductGroup(1, "Dulces", R.drawable.leave)
-    val cremas = ProductGroup(2, "Cremas", R.drawable.logoface)
-    val frutas = ProductGroup(3,"Frutas", R.drawable.logogoogle)
-    val botanas = ProductGroup(4,"Frutas", R.drawable.logoinsta)
+    val cremas = ProductGroup(2, "Cremas", R.drawable.c_cremas)
+    val dulces = ProductGroup(1, "Dulces", R.drawable.c_dulces)
+    val salsas = ProductGroup(3,"Salsas", R.drawable.c_salsas)
+    val botanas = ProductGroup(4,"Botanas", R.drawable.c_botanas)
+
+    //CREMAS
+    val c_almendras= Product(11,"Crema de cacahuate y almendras", "ANCESTRAL 300gr de crema de cacahuate artesanal con almendras", R.drawable.crema_almendras , 129.00f)
+    val c_avecacao = Product(12,"Crema de avellana y cacao", "VERDE MIO 200gr Crema de Avellana Cacao", R.drawable.crema_avellanacacao , 180.00f)
+    val c_cacaoa= Product(13,"Crema de cacahuate, cacao y arándanos", "ANCESTRAL 300gr de crema de cacahuate artesanal con cacao y arandanos", R.drawable.crema_cacao, 120.00f)
+    val c_pistache= Product(14,"Crema de cacahuate y pistache", "ANCESTRAL 300gr de crema de cacahuate artesanal con pistache", R.drawable.crema_pistache , 179.90f)
+
+    //DULCES
+    val d_fresa = Product(21,"Xplosion balls frutos rojos", "INFINY 50gr de dulce de frutos rojos sin azucar añadadida, 100% pulpa de fruta", R.drawable.dulce_fresa , 35.50f)
+    val d_pina= Product(22,"Xplosion balls frutos tropicales", "INFINY 50gr de dulce de frutos tropicales sin azucar añadadida, 100% pulpa de fruta", R.drawable.dulce_pina , 35.50f)
+    val d_mazapan= Product(23,"Mazapán frambuesa/platano", "ANCESTRAL 40gr de mazapan artesanal con trozos de frambuesa y platano deshidrados", R.drawable.dulce_mazapan , 25.00f)
+    val d_obleas= Product(24,"Choco obleas de amaranto ", "CHOKE OBLEAS 27gr Mini Choco Obleas de Amarantos con relleno de chocolate", R.drawable.dulce_obleas , 19.50f)
+
+    //BOTANAS
+    val b_betabel= Product(31,"Chips de betabel adobadas", " SOLEADOS 50gr Betabel horneado con sabor adobado.", R.drawable.botana_betabel , 35.50f)
+    val b_cacahuates= Product(32,"Nussnuts cacahuate y semillas de calabaza", "INFINY 60gr de cacahuate y semillas de calabaza horneados con sal de jamaica", R.drawable.botana_cacahuate , 25.90f)
+    val b_maiz= Product(33,"Nussnuts granos de maíz enchilados", "INFINY 60gr de grano de maiz horneado con chile piquin seco y sal de jamaica", R.drawable.botana_maiz , 25.90f)
+    val b_soles= Product(34,"Soles", "ANCESTRAL 60gr de Dulce enchilado de arandano y dátil", R.drawable.botana_soles , 38.90f)
+
+    //SALSAS
+    val s_arandano= Product(41,"Salsa macha con arandano", "ANCESTRAL 250gr de salsa a base de aceite, frutos secos y arandano.", R.drawable.salsa_arandano , 129.90f)
+    val s_mango= Product(42,"Salsa macha con mango", "ANCESTRAL 250 gr de salsa a base de aceite, frutos secos, mango y almendra", R.drawable.salsa_mango , 159.00f)
+    val s_kiwi= Product(43,"Salsa macha con kiwi", "ANCESTRAL 250gr de salsa a base de aceite, frutos secos, kiwi y avellana", R.drawable.salsa_kiwi , 159.00f)
+    val s_original= Product(44,"Salsa macha original", "ANCESTRAL 250gr de salsa a base de aceite y frutos secos", R.drawable.salsa_original , 120.00f)
 
 
-    val fresa = Product(1,"Fresa", "Es una fresa", R.drawable.leave , 10.22f)
-    val face = Product(2,"Face", "Este es el feis", R.drawable.logoface , 10.22f)
+    val myProducts: MutableList<Product> = mutableListOf(c_almendras, c_avecacao, c_cacaoa, c_pistache,d_fresa, d_pina, d_mazapan, d_obleas, b_betabel, b_cacahuates, b_maiz, b_soles, s_arandano, s_kiwi, s_mango, s_original)
 
-    
+    val myProductsCremas : MutableList<Product> = mutableListOf(c_almendras, c_avecacao, c_cacaoa, c_pistache)
+    val myProductsDulces : MutableList<Product> = mutableListOf(d_fresa, d_pina, d_mazapan, d_obleas)
+    val myProductsBotanas : MutableList<Product> = mutableListOf(b_betabel, b_cacahuates, b_maiz, b_soles)
+    val myProductsSalsas : MutableList<Product> = mutableListOf(s_arandano, s_kiwi, s_mango, s_original)
 
 
-    val myProducts: MutableList<Product> = mutableListOf(fresa, face,)
-
-    val myProductsDulces : MutableList<Product> = mutableListOf()
-    val myProductsCremas : MutableList<Product> = mutableListOf()
-    val myProductsFrutas : MutableList<Product> = mutableListOf()
-    val myProductsBotanas : MutableList<Product> = mutableListOf()
-
-    val myProductGroup: MutableList<ProductGroup> = mutableListOf(dulces, cremas, frutas, botanas)
+    val myProductGroup: MutableList<ProductGroup> = mutableListOf(cremas,dulces,botanas,salsas)
 
 }
 
