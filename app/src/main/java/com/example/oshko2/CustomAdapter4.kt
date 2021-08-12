@@ -21,10 +21,10 @@ class CustomAdapter4 : RecyclerView.Adapter<CustomAdapter4.ViewHolder>(){
     interface onItemClickListener{
 
         fun onItemClick (position: Int)
-        fun onImageAddClick (position: Int, button : ImageView , text : TextView )
-        fun onImageDeleteClick (position: Int, button : ImageView , text : TextView )
+        fun onImageAddClick (position: Int, button : ImageView , text : TextView , precioText: TextView)
+        fun onImageDeleteClick (position: Int, button : ImageView , text : TextView , precioText: TextView)
         fun onStarSelected (position: Int, button : ImageView)
-        fun onButtonSelected(position: Int, text : TextView)
+        fun onButtonSelected(position: Int, text : TextView, precioText: TextView)
     }
 
     fun setOnItemClickListener(listener: onItemClickListener){
@@ -42,6 +42,8 @@ class CustomAdapter4 : RecyclerView.Adapter<CustomAdapter4.ViewHolder>(){
         viewHolder.productName.text = products.myFavorites[i].tittle
         viewHolder.productDescription.text = products.myFavorites[i].description
         viewHolder.itemImage.setImageResource(products.myFavorites[i].image)
+        viewHolder.quantity.text = products.myFavorites[i].quantity.toString()
+        viewHolder.priceText.text = "${products.myFavorites[i].price * products.myFavorites[i].quantity.toFloat()}"
     }
 
     override fun getItemCount(): Int {
@@ -57,7 +59,7 @@ class CustomAdapter4 : RecyclerView.Adapter<CustomAdapter4.ViewHolder>(){
         var quantity: TextView
         var star : ImageView
         var buttonShopping : Button
-
+        var priceText : TextView
 
         init{
             itemImage = itemView.findViewById(R.id.item_image)
@@ -68,6 +70,7 @@ class CustomAdapter4 : RecyclerView.Adapter<CustomAdapter4.ViewHolder>(){
             quantity = itemView.findViewById(R.id.quantityToAdd)
             star = itemView.findViewById(R.id.favoriteIcon)
             buttonShopping = itemView.findViewById(R.id.buttonShoppingCart)
+            priceText = itemView.findViewById(R.id.precioText)
 
             buttonShopping.context.resources?.getColor(R.color.auxiliarColor2)
 
@@ -76,11 +79,11 @@ class CustomAdapter4 : RecyclerView.Adapter<CustomAdapter4.ViewHolder>(){
             }
 
             plus.setOnClickListener{
-                listener.onImageAddClick(absoluteAdapterPosition, plus, quantity)
+                listener.onImageAddClick(absoluteAdapterPosition, plus, quantity, priceText)
             }
 
             delete.setOnClickListener{
-                listener.onImageDeleteClick(absoluteAdapterPosition, delete , quantity)
+                listener.onImageDeleteClick(absoluteAdapterPosition, delete , quantity, priceText)
             }
 
             star.setOnClickListener{
@@ -88,7 +91,7 @@ class CustomAdapter4 : RecyclerView.Adapter<CustomAdapter4.ViewHolder>(){
             }
 
             buttonShopping.setOnClickListener{
-                listener.onButtonSelected(absoluteAdapterPosition, quantity)
+                listener.onButtonSelected(absoluteAdapterPosition, quantity, priceText)
             }
 
         }

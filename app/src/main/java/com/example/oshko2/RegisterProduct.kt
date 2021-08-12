@@ -43,6 +43,14 @@ class RegisterProduct {
     val myFavorites : MutableList<Product> = mutableListOf()
 
     val myProductGroup: MutableList<ProductGroup> = mutableListOf(cremas,dulces,botanas,salsas)
+    val myShippings: MutableList<Product> = mutableListOf()
 
+    fun getTotalPrice() : Float{
+        var acum = 0.0f
+        for(cart in myShoppingCart){
+            acum += cart.price * cart.quantity
+        }
+        return acum
+    }
 }
 

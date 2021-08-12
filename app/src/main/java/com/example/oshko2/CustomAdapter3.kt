@@ -21,8 +21,8 @@ class CustomAdapter3 : RecyclerView.Adapter<CustomAdapter3.ViewHolder>(){
     interface onItemClickListener{
 
         fun onItemClick (position: Int)
-        fun onImageAddClick (position: Int, button : ImageView , text : TextView )
-        fun onImageDeleteClick (position: Int, button : ImageView , text : TextView )
+        fun onImageAddClick (position: Int, button : ImageView , text : TextView , precioText: TextView)
+        fun onImageDeleteClick (position: Int, button : ImageView , text : TextView , precioText: TextView)
         fun onStarSelected (position: Int, button : ImageView)
         fun onButtonSelected(position: Int, text : TextView)
     }
@@ -43,6 +43,7 @@ class CustomAdapter3 : RecyclerView.Adapter<CustomAdapter3.ViewHolder>(){
         viewHolder.productDescription.text = products.myShoppingCart[i].description
         viewHolder.itemImage.setImageResource(products.myShoppingCart[i].image)
         viewHolder.quantity.text = products.myShoppingCart[i].quantity.toString()
+        viewHolder.priceText.text = products.myShoppingCart[i].price.toString()
     }
 
     override fun getItemCount(): Int {
@@ -58,8 +59,7 @@ class CustomAdapter3 : RecyclerView.Adapter<CustomAdapter3.ViewHolder>(){
         var quantity: TextView
         var star : ImageView
         var buttonShopping : Button
-
-
+        var priceText : TextView
 
         init{
             itemImage = itemView.findViewById(R.id.item_image)
@@ -71,6 +71,8 @@ class CustomAdapter3 : RecyclerView.Adapter<CustomAdapter3.ViewHolder>(){
             star = itemView.findViewById(R.id.favoriteIcon)
             buttonShopping = itemView.findViewById(R.id.buttonShoppingCart)
             buttonShopping.text = "Eliminar del carrito"
+            priceText = itemView.findViewById(R.id.precioText)
+
 
 
             itemView.setOnClickListener{
@@ -78,11 +80,11 @@ class CustomAdapter3 : RecyclerView.Adapter<CustomAdapter3.ViewHolder>(){
             }
 
             plus.setOnClickListener{
-                listener.onImageAddClick(absoluteAdapterPosition, plus, quantity)
+                listener.onImageAddClick(absoluteAdapterPosition, plus, quantity, priceText)
             }
 
             delete.setOnClickListener{
-                listener.onImageDeleteClick(absoluteAdapterPosition, delete , quantity)
+                listener.onImageDeleteClick(absoluteAdapterPosition, delete , quantity ,priceText)
             }
 
             star.setOnClickListener{

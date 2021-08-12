@@ -30,6 +30,7 @@ class ShoppingCartFragment : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -44,6 +45,17 @@ class ShoppingCartFragment : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_shopping_cart, container, false)
 
+        var totalPrice = view.precio
+        totalPrice.setText("${products.getTotalPrice()}")
+
+        var buttonComprar = view.buttonComprar
+
+        buttonComprar.setOnClickListener {
+            products.myShippings.addAll(products.myShoppingCart)
+            products.myShoppingCart.clear()
+            changeFragment(ShoppingCartFragment())
+            Toast.makeText(activity, "Se ha hecho la compra con exito", Toast.LENGTH_SHORT).show()
+        }
 
         if(products.myShoppingCart.size > 0){
             val recyclerView3 = view.findViewById<RecyclerView>(R.id.recyclerView3)
@@ -60,19 +72,25 @@ class ShoppingCartFragment : Fragment() {
 
                 }
 
-                override fun onImageAddClick(position: Int, button: ImageView, text: TextView) {
+                override fun onImageAddClick(position: Int, button: ImageView, text: TextView, precioText: TextView) {
                     var aux1  = text.text.toString().toInt()
                     aux1 += 1
 
                     text.text = "$aux1"
+                    products.myShoppingCart[position].quantity = aux1
+                    precioText.setText("${aux1.toFloat() * products.myShoppingCart[position].price}" )
+                    totalPrice.setText("${products.getTotalPrice()}")
                 }
 
-                override fun onImageDeleteClick(position: Int, button: ImageView, text: TextView) {
+                override fun onImageDeleteClick(position: Int, button: ImageView, text: TextView, precioText: TextView) {
                     var aux1  = text.text.toString().toInt()
                     if(aux1 > 0)
                         aux1 -= 1
                     products.myShoppingCart[position].quantity = aux1
                     text.text = "$aux1"
+
+                    precioText.setText("${aux1.toFloat() * products.myShoppingCart[position].price}" )
+                    totalPrice.setText("${products.getTotalPrice()}")
                 }
 
                 override fun onStarSelected(position: Int, button: ImageView) {

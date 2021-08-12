@@ -5,7 +5,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.example.oshko2.CustomAdapter5
 import com.example.oshko2.R
+import com.example.oshko2.products
+import kotlinx.android.synthetic.main.fragment_shipping.view.*
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -34,8 +39,18 @@ class ShippingFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_shipping, container, false)
+        val view =  inflater.inflate(R.layout.fragment_shipping, container, false)
+
+        if(products.myShippings.size > 0){
+            val recyclerView5 = view.findViewById<RecyclerView>(R.id.recyclerView5)
+            val adapter = CustomAdapter5()
+
+            view.recyclerView5.layoutManager = LinearLayoutManager(activity)
+            recyclerView5.adapter = adapter
+        }
+
+
+        return view
     }
 
     companion object {

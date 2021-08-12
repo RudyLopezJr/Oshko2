@@ -7,6 +7,9 @@ import android.os.Bundle
 import android.os.Handler
 import androidx.core.os.HandlerCompat.postDelayed
 
+var myUsers = RegisterUser()
+var positionUser = 0
+
 
 class MainActivity : AppCompatActivity() {
 

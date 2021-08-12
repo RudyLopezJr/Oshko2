@@ -9,6 +9,8 @@ import android.view.ViewGroup
 import android.widget.TextView
 import com.example.oshko2.HomeActivity
 import com.example.oshko2.R
+import com.example.oshko2.myUsers
+import com.example.oshko2.positionUser
 import kotlinx.android.synthetic.*
 import kotlinx.android.synthetic.main.fragment_profile.view.*
 
@@ -28,11 +30,9 @@ class ProfileFragment : Fragment() {
     private var param2: String? = null
 
     private lateinit var name : TextView
-    private lateinit var shoppingHistory : TextView
     private lateinit var payment : TextView
     private lateinit var shipping : TextView
-    private lateinit var favorites : TextView
-    private lateinit var settings : TextView
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -52,29 +52,19 @@ class ProfileFragment : Fragment() {
 
 
         name = view.persona
-        name.text = "Juan Hernandez"
+        name.text = myUsers.myUsers[positionUser].nombre
 
-        shoppingHistory = view.history
         payment = view.payment
         shipping = view.shipping
-        favorites = view.favorites
-        settings = view.settings
 
-        shoppingHistory.setOnClickListener{
-            changeFragment(ShoppingHistoryFragment())
-        }
+
         payment.setOnClickListener{
             changeFragment(PaymentMetods())
         }
         shipping.setOnClickListener{
             changeFragment(ShippingFragment())
         }
-        favorites.setOnClickListener{
-            changeFragment(FavoriteFragment())
-        }
-        settings.setOnClickListener{
-            changeFragment(SettingsFragment())
-        }
+
 
 
         return view

@@ -58,17 +58,20 @@ class StarFragment : Fragment() {
 
                 }
 
-                override fun onImageAddClick(position: Int, button: ImageView, text: TextView) {
+                override fun onImageAddClick(position: Int, button: ImageView, text: TextView, precioText: TextView) {
                     var aux1  = text.text.toString().toInt()
                     aux1 += 1
                     text.text = "$aux1"
+
+                    precioText.setText("${aux1.toFloat() * products.myFavorites[position].price}" )
                 }
 
-                override fun onImageDeleteClick(position: Int, button: ImageView, text: TextView) {
+                override fun onImageDeleteClick(position: Int, button: ImageView, text: TextView, precioText: TextView) {
                     var aux1  = text.text.toString().toInt()
                     if(aux1 > 0)
                         aux1 -= 1
                     text.text = "$aux1"
+                    precioText.setText("${aux1.toFloat() * products.myFavorites[position].price}" )
                 }
 
                 override fun onStarSelected(position: Int, button: ImageView) {
@@ -111,12 +114,13 @@ class StarFragment : Fragment() {
                     }
                 }
 
-                override fun onButtonSelected(position: Int, text: TextView) {
+                override fun onButtonSelected(position: Int, text: TextView, precioText: TextView) {
                     var aux1 = text.text.toString().toInt()
                     var aux2 = products.myProducts[position + positionE *4]
                     aux2.quantity += aux1
                     products.myShoppingCart.add(aux2)
-                    text.text = "0"
+                    text.text = "1"
+                    precioText.setText("${products.myFavorites[position].price}")
                 }
 
 
