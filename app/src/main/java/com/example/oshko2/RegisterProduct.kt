@@ -52,5 +52,26 @@ class RegisterProduct {
         }
         return acum
     }
+
+    fun addProduct( myP : Product){
+
+        var aux1 = false
+        var aux2 = 0
+
+        var i = 0
+        for(myPr in myShoppingCart){
+            if(myPr.id.toInt() == myP.id.toInt() ){
+                aux1 = true
+                aux2 = i
+            }
+            i += 1
+        }
+        if(!aux1){
+            myShoppingCart.add(myP)
+        }
+        else{
+            myShoppingCart[aux2].quantity = myP.quantity
+        }
+    }
 }
 

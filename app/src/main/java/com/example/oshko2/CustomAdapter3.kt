@@ -43,7 +43,7 @@ class CustomAdapter3 : RecyclerView.Adapter<CustomAdapter3.ViewHolder>(){
         viewHolder.productDescription.text = products.myShoppingCart[i].description
         viewHolder.itemImage.setImageResource(products.myShoppingCart[i].image)
         viewHolder.quantity.text = products.myShoppingCart[i].quantity.toString()
-        viewHolder.priceText.text = products.myShoppingCart[i].price.toString()
+        viewHolder.priceText.text = "${products.myShoppingCart[i].price * products.myShoppingCart[i].quantity.toFloat()}"
     }
 
     override fun getItemCount(): Int {

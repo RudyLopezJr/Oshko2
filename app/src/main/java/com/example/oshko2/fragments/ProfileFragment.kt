@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.TextView
 import com.example.oshko2.HomeActivity
 import com.example.oshko2.R
@@ -32,6 +33,8 @@ class ProfileFragment : Fragment() {
     private lateinit var name : TextView
     private lateinit var payment : TextView
     private lateinit var shipping : TextView
+    private lateinit var shipping2 : TextView
+    private lateinit var buttonLogout : Button
 
 
 
@@ -56,6 +59,8 @@ class ProfileFragment : Fragment() {
 
         payment = view.payment
         shipping = view.shipping
+        shipping2 = view.shipping2
+        buttonLogout = view.buttonLogout
 
 
         payment.setOnClickListener{
@@ -63,6 +68,14 @@ class ProfileFragment : Fragment() {
         }
         shipping.setOnClickListener{
             changeFragment(ShippingFragment())
+        }
+
+        shipping2.setOnClickListener {
+            changeFragment(adressFragment())
+        }
+
+        buttonLogout.setOnClickListener {
+            activity?.finish()
         }
 
 

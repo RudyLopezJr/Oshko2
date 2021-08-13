@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:card_view="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".fragments.PaymentMetods">
+xmlns:card_view="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+tools:context=".fragments.adressFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/textView3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fontFamily="@font/nunito_extrabold"
-        android:text="@string/payment"
+        android:text="@string/address"
         android:textColor="@color/accent1"
         android:textSize="36sp"
         card_view:layout_constraintEnd_toEndOf="parent"
@@ -24,61 +24,59 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="12dp"
-
-        android:layout_marginTop="24dp"
         android:backgroundTint="#FFFFFF"
         card_view:cardBackgroundColor="@color/white"
         card_view:cardCornerRadius="20dp"
         card_view:cardElevation="6dp"
         card_view:contentPadding="4dp"
-        card_view:layout_constraintTop_toBottomOf="@+id/textView2"
-        tools:layout_editor_absoluteX="16dp">
+        card_view:layout_constraintTop_toBottomOf="@+id/textView3"
+        tools:layout_editor_absoluteX="12dp">
+
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="194dp"
-            android:padding="16dp"
-            tools:layout_editor_absoluteX="29dp"
-            tools:layout_editor_absoluteY="116dp">
+            android:layout_height="168dp"
+            android:padding="16dp">
 
             <ImageView
-                android:id="@+id/mastercard"
+                android:id="@+id/addressview"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
-                android:layout_marginStart="288dp"
-                android:layout_marginTop="108dp"
-                android:contentDescription="Tarjeta mastercard"
-                android:src="@drawable/mastercard"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="4dp"
+                android:contentDescription="addressview"
+                android:src="@drawable/addressview"
                 card_view:layout_constraintStart_toStartOf="parent"
                 card_view:layout_constraintTop_toTopOf="parent" />
+
 
             <TextView
                 android:id="@+id/name_product"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="116dp"
+                android:layout_marginTop="4dp"
                 android:fontFamily="@font/roboto_bold"
-                android:text="@string/cardnumber"
+                android:text="@string/shipping"
                 android:textColor="@color/black"
                 android:textSize="24sp"
                 android:textStyle="bold"
-                card_view:layout_constraintStart_toStartOf="@+id/item_image"
+                card_view:layout_constraintEnd_toEndOf="parent"
+                card_view:layout_constraintHorizontal_bias="0.153"
+                card_view:layout_constraintStart_toEndOf="@+id/mastercard"
                 card_view:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/usercard"
-                android:layout_width="83dp"
-                android:layout_height="52dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="8dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:fontFamily="@font/roboto"
-                android:text="@string/membercard"
+                android:text="@string/address1"
                 android:textColor="@color/black"
-                android:textSize="16sp"
+                android:textSize="12dp"
                 android:textStyle="bold"
-                card_view:layout_constraintStart_toEndOf="@+id/item_image"
-                card_view:layout_constraintTop_toBottomOf="@+id/name_product" />
-
+                card_view:layout_constraintBottom_toTopOf="@+id/guideline3"
+                card_view:layout_constraintEnd_toEndOf="parent"
+                card_view:layout_constraintStart_toStartOf="@+id/guideline4" />
 
             <androidx.constraintlayout.widget.Guideline
                 android:id="@+id/guideline3"
@@ -97,8 +95,8 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-    </androidx.cardview.widget.CardView>
 
+    </androidx.cardview.widget.CardView>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

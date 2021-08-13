@@ -34,4 +34,12 @@
     <string name="imagen_de_fondo">Imagen de fondo</string>
 
 
+    //payment
+    <string name="cardnumber">****3162</string>
+    <string name="membercard">Persona</string>
+
+    //shipping
+    <string name="shipping">Hogar</string>
+    <string name="address1">Calle #123 Colonia CP Ciudad de México</string>
+
 </resources>

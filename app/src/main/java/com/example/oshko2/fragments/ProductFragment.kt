@@ -126,9 +126,9 @@ class ProductFragment : Fragment() {
 
             override fun onButtonSelected(position: Int, text: TextView, precioText: TextView) {
                 var aux1 = text.text.toString().toInt()
-                var aux2 = products.myProducts[position + positionE*4]
+                var aux2 = products.myProducts[position + num]
                 aux2.quantity += aux1
-                products.myShoppingCart.add(aux2)
+                products.addProduct(aux2)
                 text.text = "1"
                 precioText.setText("${products.myProducts[position + num].price}")
             }
