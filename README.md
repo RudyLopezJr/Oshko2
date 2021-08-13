@@ -28,7 +28,7 @@ VISIÓN OSHKO
 La visión de OSHKO es crear una red nacional entre consumidores y productores orgánicos locales a lo largo y ancho de la república, uniendo los pueblos con las ciudades a través de la plataforma. Volviéndose OSHKO una aplicación reconocida en la cultura orgánica ambientalista.
 
 
-* Datos obtenidos de www.x-data.mx/
-** La huella ecológica  es un indicador para conocer el grado de impacto de la sociedad sobre el medio ambiente. 
+*Datos obtenidos de www.x-data.mx/
+**La huella ecológica  es un indicador para conocer el grado de impacto de la sociedad sobre el medio ambiente. 
 Determina cuanto espacio terrestre y marino se necestia para producir los recursos y bienes que se consumen.
 Este concepto fue propuesto en 1996 por William Rees y Malthis Wackernagel
