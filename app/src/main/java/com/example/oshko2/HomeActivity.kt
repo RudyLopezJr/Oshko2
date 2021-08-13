@@ -33,6 +33,9 @@ class HomeActivity : AppCompatActivity() {
     private val shoppingCartFragment = ShoppingCartFragment()
     private val starFragment = StarFragment()
 
+    override fun onBackPressed() {
+        replaceFragment(homeFragment)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
